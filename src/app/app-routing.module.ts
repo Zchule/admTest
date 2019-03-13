@@ -17,7 +17,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'form-user', loadChildren: './form-user/form-user.module#FormUserPageModule' }
 ];
 
 @NgModule({
