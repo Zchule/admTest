@@ -1,0 +1,23 @@
+<ion-content>
+  <img class="logo" src="assets/imgs/logo1.png" alt="image">
+  <div padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+        </ion-col>
+        <ion-col size="8">
+          <form  novalidate [formGroup]="form">
+            <ion-item>
+              <ion-input formControlName="usuario" placeholder="Usuario"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" formControlName="contrasena" placeholder="Contraseña"></ion-input>
+            </ion-item>
+
+            <ion-button padding class="botton" shape="round" color="danger" [disabled]="form.invalid" (click)="Ingresar()">Entrar</ion-button>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

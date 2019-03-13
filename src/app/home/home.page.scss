@@ -2,3 +2,35 @@
   max-height: 35vh;
   overflow: hidden;
 }
+.center {
+  padding: 20px 70px;
+  hr {
+    display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  }
+}
+
+ion-searchbar {
+  border-radius: 5px;
+}
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+ion-fab {
+  ion-label {
+    // font-weight: bold;
+    // text-align: center;
+    // bottom: 13px;
+    // right: 55px;
+    // color: white;
+    // background-color: red;
+    // position: absolute;
+  }
+}
