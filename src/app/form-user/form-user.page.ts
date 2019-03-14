@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { AuthorizacionService } from '../services/authorization.service';
 
 @Component({
   selector: 'app-form-user',
@@ -15,6 +16,7 @@ export class FormUserPage implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private formBuilder: FormBuilder,
+    private authorizationService: AuthorizacionService
   ) { }
 
   ngOnInit() {
@@ -28,14 +30,15 @@ export class FormUserPage implements OnInit {
   private buildForm() {
     return this.formBuilder.group({
       nombre: ['', [Validators .required]],
-      correo: ['', [Validators .required]],
-      contrasena: ['', [Validators.required]]
+      email: ['', [Validators .required]],
+      password: ['', [Validators.required]]
     });
   }
 
   async saveUser() {
     this.user = this.form.value;
     console.log(this.user);
+    this.authorizationService.registro(this.user.email, this.user.password);
     await this.modalCtrl.dismiss(this.user);
   }
 

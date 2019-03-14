@@ -10,20 +10,39 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthorizacionService } from './services/authorization.service';
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyCxGDvQ3QGX2rRwKkIbEaYscWekwTw8c_A',
+  authDomain: 'platzisquare-7e8ce.firebaseapp.com',
+  databaseURL: 'https://platzisquare-7e8ce.firebaseio.com',
+  projectId: 'platzisquare-7e8ce',
+  storageBucket: 'platzisquare-7e8ce.appspot.com',
+  messagingSenderId: '59699983713'
+};
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AuthorizacionService
   ],
   bootstrap: [AppComponent]
 })

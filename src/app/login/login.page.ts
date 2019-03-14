@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-
+import { AuthorizacionService } from '../services/authorization.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,8 +15,14 @@ export class LoginPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private authorizationService: AuthorizacionService
+  ) {
+  }
+
+  logout() {
+    this.authorizationService.logout();
+  }
 
   ngOnInit() {
     this.form = this.buildForm();
@@ -24,15 +30,15 @@ export class LoginPage implements OnInit {
 
   private buildForm() {
     return this.formBuilder.group({
-      usuario: ['', [Validators .required]],
-      contrasena: ['', [Validators.required]]
+      email: ['', [Validators .required]],
+      password: ['', [Validators.required]]
     });
   }
 
   Ingresar() {
     this.user = this.form.value;
     console.log(this.user);
-    this.router.navigate([`home`]);
+    this.authorizationService.login(this.user.email, this.user.password);
   }
 
 }

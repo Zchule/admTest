@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 import { FormUserPage } from '../form-user/form-user.page';
+import { AuthorizacionService } from '../services/authorization.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomePage {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public authorizationService: AuthorizacionService
   ) {
   }
 
