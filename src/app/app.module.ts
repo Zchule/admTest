@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthorizacionService } from './services/authorization.service';
+import { UserService } from './services/users.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCxGDvQ3QGX2rRwKkIbEaYscWekwTw8c_A',
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AuthorizacionService
+    AuthorizacionService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

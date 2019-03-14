@@ -12,14 +12,24 @@
 <ion-content padding>
   <form novalidate [formGroup]="form">
     <ion-item>
-      <ion-input formControlName="nombre" placeholder="Escriba su nombre"></ion-input>
+      <ion-input formControlName="name" placeholder="Escriba su nombre"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-input type="number" formControlName="cedula" placeholder="Escriba su cédula"></ion-input>
+      </ion-item>
     <ion-item>
       <ion-input type="email" formControlName="email" placeholder="Escriba un correo"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="password" formControlName="password" placeholder="Escriba una contraseña"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-label>Tipo de Usuario</ion-label>
+        <ion-select placeholder="administrador" formControlName="typeUser">
+          <ion-select-option value="administrador">administrador</ion-select-option>
+          <ion-select-option value="estudiante">estudiante</ion-select-option>
+        </ion-select>
+      </ion-item>
     <ion-button padding class="botton" shape="round" color="danger" [disabled]="form.invalid" (click)="saveUser()">Crear usuario</ion-button>
   </form>
 </ion-content>

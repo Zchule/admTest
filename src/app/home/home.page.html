@@ -19,6 +19,7 @@
 <ion-content>
   <div class="center">
   <h3>Inicio</h3>
+  <h5 *ngIf="loggedIn">{{ email }}</h5>
   <hr>
   <ion-grid>
     <ion-row>

@@ -6,10 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { FormUserPage } from './form-user.page';
-import { AuthorizacionService } from '../services/authorization.service';
-
-import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const routes: Routes = [
   {
@@ -27,8 +23,5 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   declarations: [FormUserPage],
-  // providers: [
-  //   AuthorizacionService
-  // ],
 })
 export class FormUserPageModule {}

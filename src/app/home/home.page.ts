@@ -12,6 +12,8 @@ import { AuthorizacionService } from '../services/authorization.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  loggedIn = false;
+  email: any = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +22,19 @@ export class HomePage {
     public modalController: ModalController,
     public authorizationService: AuthorizacionService
   ) {
+    this.authorizationService.isLogged()
+    .subscribe((result) => {
+      if (result && result.uid) {
+        this.loggedIn = true;
+        setTimeout(() => {
+          this.email = authorizationService.getUser().currentUser.email;
+        }, 500);
+      } else {
+        this.loggedIn = false;
+      }
+    }, (error) => {
+      this.loggedIn = false;
+    });
   }
 
   async addUser() {
@@ -28,7 +43,7 @@ export class HomePage {
       });
     modal.present();
     modal.onDidDismiss().then((result: any) => {
-      console.log( result.data);
+      console.log(result.data);
    });
   }
 }

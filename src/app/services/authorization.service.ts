@@ -9,14 +9,13 @@ export class AuthorizacionService {
     private authFire: AngularFireAuth,
     private router: Router
   ) {
-    // this.isLogged();
+    this.isLogged();
   }
 
-  public login = (email: string, password: string) => {
+  public login(email: string, password: string) {
     console.log('login');
     this.authFire.auth.signInWithEmailAndPassword(email, password)
     .then((response) => {
-      alert('usuario logeado');
       this.router.navigate([`home`]);
     }).catch((error) => {
       alert('error');
@@ -25,17 +24,6 @@ export class AuthorizacionService {
     });
   }
 
-  public registro = (email: string, password: string) => {
-    console.log('registro');
-    this.authFire.auth.createUserWithEmailAndPassword(email, password)
-    .then((response) => {
-      this.router.navigate([`home`]);
-    }).catch((error) => {
-      alert('error');
-      console.log(error);
-      this.router.navigate([`form-user`]);
-    });
-  }
   public isLogged() {
     return this.authFire.authState;
   }
