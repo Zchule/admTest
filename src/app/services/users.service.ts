@@ -44,6 +44,6 @@ export class UserService {
   }
 
   public getUsers() {
-    return this.afDB.list('users/').valueChanges();
+    return this.afDB.list('userProfiles/').snapshotChanges();
   }
 }
