@@ -5,6 +5,7 @@ import { ModalController } from '@ionic/angular';
 
 import { FormUserPage } from '../form-user/form-user.page';
 import { AuthorizacionService } from '../services/authorization.service';
+import { FormFolderPage } from '../form-folder/form-folder.page';
 
 @Component({
   selector: 'app-home',
@@ -46,5 +47,16 @@ export class HomePage {
       console.log(result.data);
    });
   }
+
+  async addFolder() {
+    const modal = await this.modalController.create({
+      component: FormFolderPage
+      });
+    modal.present();
+    modal.onDidDismiss().then((result: any) => {
+      console.log(result.data);
+   });
+  }
+
 }
 

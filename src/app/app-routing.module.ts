@@ -18,7 +18,8 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'form-user', loadChildren: './form-user/form-user.module#FormUserPageModule' }
+  { path: 'form-user', loadChildren: './form-user/form-user.module#FormUserPageModule' },
+  { path: 'form-folder', loadChildren: './form-folder/form-folder.module#FormFolderPageModule' }
 ];
 
 @NgModule({
