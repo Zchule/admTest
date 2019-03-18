@@ -37,10 +37,15 @@ export class UserService {
   }
 
   public editUser(user) {
+    return this.afDB.object('userProfiles/' + user.id);
   }
 
-  public removeUser(user) {
+  public deleteUser(user) {
+    return this.afDB.object('userProfiles/' + user.id).remove();
+  }
 
+  public getUser(user) {
+    return this.afDB.object('item').valueChanges();
   }
 
   public getUsers() {
