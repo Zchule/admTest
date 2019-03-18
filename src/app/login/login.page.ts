@@ -55,7 +55,6 @@ export class LoginPage implements OnInit {
   }
 
   async closeOnDid() {
-    
     return await this.load.onDidDismiss();
   }
 
